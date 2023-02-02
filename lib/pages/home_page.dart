@@ -22,7 +22,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text("Welcome to $days Days Of Flutter learning by $name "),
+        child: Container(
+          
+          child: Text("Welcome to $days Days Of Flutter learning by $name "),
+        ),
       ),
       drawer: MyDrawer(),
     );
