@@ -1,9 +1,11 @@
 import 'package:codepur_flutter_catalog/pages/home_page.dart';
 import 'package:codepur_flutter_catalog/pages/login_page.dart';
 import 'package:codepur_flutter_catalog/utils/routes.dart';
+import 'package:codepur_flutter_catalog/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: HomePage(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      initialRoute: "/login",
+      theme: MyTheme.lightTheme(context),
+
+      darkTheme: MyTheme.darkTheme(context),
+      debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => const HomePage(),
         MyRoutes.homeRoute: (context) => HomePage(),
