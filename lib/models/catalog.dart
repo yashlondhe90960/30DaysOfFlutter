@@ -30,6 +30,18 @@ class Item {
     required this.color,
     required this.image,
   });
+  
+  
+  //sample added again
+  
+  Item({
+    required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image,
+  });
 
 
 
