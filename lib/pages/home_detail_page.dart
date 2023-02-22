@@ -15,7 +15,7 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(backgroundColor: Colors.transparent),
         backgroundColor: MyTheme.creamColor,
         bottomNavigationBar: Container(
           color: Colors.white,
@@ -63,6 +63,9 @@ class HomeDetailsPage extends StatelessWidget {
                             .xl
                             .make(),
                         10.heightBox,
+                        "Labore dolor voluptua dolor voluptua et nonumy, sed et et est ut dolor elitr ut, eos dolore et stet accusam nonumy eirmod vero sanctus et, sadipscing dolores vero lorem ipsum et dolores, sed ea no "
+                            .text
+                            .make(),
                       ]).py64(),
                     ),
                   ),
