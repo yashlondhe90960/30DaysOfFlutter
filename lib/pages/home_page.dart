@@ -2,12 +2,14 @@
 import 'dart:convert';
 import 'dart:ffi';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:codepur_flutter_catalog/models/catalog.dart';
 import 'package:codepur_flutter_catalog/widgets/themes.dart';
 
+import '../utils/routes.dart';
 import '../widgets/drawer.dart';
 import '../widgets/item_widget.dart';
 //ignore: import_of_legacy_library_into_null_safe
@@ -52,6 +54,13 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Scaffold(
         backgroundColor: MyTheme.creamColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+          backgroundColor: MyTheme.darkBluishColor,
+          child: Icon(
+            Icons.add_shopping_cart_outlined,
+          ),
+        ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,
