@@ -16,15 +16,14 @@ class CatalogList extends StatelessWidget {
       itemBuilder: (context, index) {
         final catalog = CatalogModel.items[index];
         return InkWell(
-            onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => HomeDetailsPage(
-                          catalog: catalog,
-                        )),
-                  ),
-                ),
-            child: CatalogItem(catalog: catalog));
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeDetailsPage(catalog: catalog),
+            ),
+          ),
+          child: CatalogItem(catalog: catalog),
+        );
       },
     );
   }
@@ -53,29 +52,38 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
-              catalog.desc.text.textStyle(context.captionStyle).make(),
+              catalog.name.text.lg.color(context.accentColor).bold.make(),
+              catalog.desc.text
+                  .textStyle(context.captionStyle)
+                  .color(Color.fromARGB(255, 181, 164, 164))
+                  .make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
                 children: [
-                  "\$${catalog.price}".text.bold.xl.make(),
+                  "\$${catalog.price}"
+                      .text
+                      .bold
+                      .xl
+                      .color(Color.fromARGB(255, 188, 185, 185))
+                      .make(),
                   ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              MyTheme.darkBluishColor),
-                          shape: MaterialStateProperty.all(
-                            StadiumBorder(),
-                          )),
-                      child: "Add to cart".text.make()),
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        shape: MaterialStateProperty.all(
+                          StadiumBorder(),
+                        )),
+                    child: "Add to cart".text.make(),
+                  )
                 ],
-              ).pOnly(right: 3.0)
+              ).pOnly(right: 8.0)
             ],
           ))
         ],
       ),
-    ).white.rounded.square(150).make().py16();
+    ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }

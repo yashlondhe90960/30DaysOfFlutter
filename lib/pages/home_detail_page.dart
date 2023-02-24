@@ -16,9 +16,9 @@ class HomeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(backgroundColor: Colors.transparent),
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor: context.canvasColor,
         bottomNavigationBar: Container(
-          color: Colors.white,
+          color: context.cardColor,
           child: ButtonBar(
             alignment: MainAxisAlignment.spaceBetween,
             buttonPadding: EdgeInsets.zero,
@@ -51,20 +51,19 @@ class HomeDetailsPage extends StatelessWidget {
                     arcType: VxArcType.CONVEY,
                     edge: VxEdge.TOP,
                     child: Container(
-                      color: Colors.white,
+                      color: context.cardColor,
                       width: context.screenWidth,
                       child: Column(children: [
-                        catalog.name.text.xl4
-                            .color(MyTheme.darkBluishColor)
-                            .bold
-                            .make(),
+                        catalog.name.text.xl4.color(Colors.white).bold.make(),
                         catalog.desc.text
                             .textStyle(context.captionStyle)
                             .xl
+                            .color(Colors.grey)
                             .make(),
                         10.heightBox,
                         "Labore dolor voluptua dolor voluptua et nonumy, sed et et est ut dolor elitr ut, eos dolore et stet accusam nonumy eirmod vero sanctus et, sadipscing dolores vero lorem ipsum et dolores, sed ea no "
                             .text
+                            .color(Colors.grey)
                             .textStyle(context.captionStyle)
                             .make()
                             .p16(),
