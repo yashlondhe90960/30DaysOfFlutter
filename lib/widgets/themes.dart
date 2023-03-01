@@ -27,8 +27,14 @@ class MyTheme {
         color: Colors.black,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.white),
+
+        // titleTextStyle: TextStyle(
+        //   color: Colors.white,
+        // ),
         // ignore: deprecated_member_use
-        textTheme: Theme.of(context).textTheme,
+        textTheme: Theme.of(context).textTheme.copyWith(
+            headline6:
+                context.textTheme.headline6!.copyWith(color: Colors.white)),
       ),
       colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple)
           .copyWith(secondary: darkBluishColor));
