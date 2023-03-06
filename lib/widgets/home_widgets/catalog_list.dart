@@ -1,13 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:codepur_flutter_catalog/models/cart.dart';
+import 'package:codepur_flutter_catalog/models/catalog.dart';
+import 'package:codepur_flutter_catalog/pages/home_detail_page.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_catalog/models/cart.dart';
+// import 'package:flutter_catalog/models/catalog.dart';
+// import 'package:flutter_catalog/pages/home_detail_page.dart';
+// import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'package:codepur_flutter_catalog/pages/home_detail_page.dart';
-import 'package:codepur_flutter_catalog/widgets/themes.dart';
-
-import '../../models/catalog.dart';
-import '../../pages/home_page.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
@@ -17,7 +17,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.getByPosition(index);
+        final catalog = CatalogModel.items[index];
         return InkWell(
           onTap: () => Navigator.push(
             context,
@@ -56,21 +56,13 @@ class CatalogItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               catalog.name.text.lg.color(context.accentColor).bold.make(),
-              catalog.desc.text
-                  .textStyle(context.captionStyle)
-                  .color(Color.fromARGB(255, 181, 164, 164))
-                  .make(),
+              catalog.desc.text.textStyle(context.captionStyle).make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
                 children: [
-                  "\$${catalog.price}"
-                      .text
-                      .bold
-                      .xl
-                      .color(Color.fromARGB(255, 188, 185, 185))
-                      .make(),
+                  "\$${catalog.price}".text.bold.xl.make(),
                   _AddToCart(catalog: catalog)
                 ],
               ).pOnly(right: 8.0)
@@ -84,17 +76,16 @@ class CatalogItem extends StatelessWidget {
 
 class _AddToCart extends StatefulWidget {
   final Item catalog;
-
   const _AddToCart({
     Key? key,
     required this.catalog,
   }) : super(key: key);
 
   @override
-  State<_AddToCart> createState() => _AddToCartState();
+  __AddToCartState createState() => __AddToCartState();
 }
 
-class _AddToCartState extends State<_AddToCart> {
+class __AddToCartState extends State<_AddToCart> {
   bool isAdded = false;
 
   @override
@@ -109,7 +100,7 @@ class _AddToCartState extends State<_AddToCart> {
         setState(() {});
       },
       style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
+          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
           shape: MaterialStateProperty.all(
             StadiumBorder(),
           )),

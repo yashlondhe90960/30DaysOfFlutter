@@ -38,7 +38,7 @@ class _CartTotal extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           // ignore: deprecated_member_use
-          "\${_cart.totalPrice}"
+          "\$${_cart.totalPrice}"
               .text
               .xl5
               // ignore: deprecated_member_use
@@ -71,12 +71,18 @@ class __CartListState extends State<_CartList> {
     return ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.done),
+        leading: Icon(
+          Icons.done,
+          color: Colors.green,
+        ),
         trailing: IconButton(
-          icon: Icon(Icons.remove_circle_outline),
+          icon: Icon(
+            Icons.remove_circle_outline,
+            color: Colors.yellowAccent,
+          ),
           onPressed: () {},
         ),
-        title: _cart.items[index].name.text.make(),
+        title: _cart.items[index].name.text.color(Colors.white).make(),
       ),
     );
   }
